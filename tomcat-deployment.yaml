@@ -8,7 +8,7 @@ spec:
     matchLabels:
       tier: frontend
     matchExpressions:
-      - {Key: tier, operator: In, values: [frontend] }
+      - {key: tier, operator: In, values: [frontend] }
   template:
     metadata:
       labels:
@@ -18,6 +18,6 @@ spec:
       containers:
       - name: tocat-demo
         image: tomcat
-        imagePullPolicy: IfNoePresent
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3306
