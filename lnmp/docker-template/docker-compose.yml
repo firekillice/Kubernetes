@@ -1,0 +1,100 @@
+version: '3'
+services:
+  redis:
+    image: redis:6.2.3
+    restart: always
+    privileged: true
+    #command:
+      #redis-server --requirepass 4rT35Ker4m --logfile /logs/redis.log --dir /data
+      #redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+      - /data/cuser00/var/redis:/data
+      - /data/cuser00/var/log/redis:/logs
+    ports:
+      - 7478:6379
+    user: ${CURRENT_UID}
+
+  mongo:
+    image: mongo:4.4.6
+    restart: always
+    environment:
+      - AUTO_RUN_DIR=/docker-entrypoint-initdb.d
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/var/log/mongodb
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=H5gamere40d6bjm#2021
+    command:
+      mongod -f /data/configdb/mongodb.conf
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /data/cuser00/var/mongo:/data/db
+      - /data/cuser00/var/log/mongo:/var/log/mongodb
+      - ./mongo/config:/data/configdb
+      - ./mongo/setup.sh:/docker-entrypoint-initdb.d/00-init-setup.sh
+    ports:
+      - 40001:27017
+    user: ${CURRENT_UID}
+
+  php:
+    build: "./php"
+    image: php-h5:1.0
+    restart: always
+    user: ${CURRENT_UID}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ..:/code
+      - /data/cuser00/www:/data/cuser00/www
+      #- ../gameserver/application/lib:/code/manage/lib
+      #- ../gameserver/vendor:/code/manage/vendor
+      - /data/cuser00/var/log/php:/logs
+      - /data/cuser00/var/log:/data/cuser00/var/log
+    ports:
+      - 9000:9000
+      
+  workerman:
+    build: "./php"
+    image: php-wm:1.0
+    restart: always
+    user: ${CURRENT_UID}
+    environment:
+      - SPECIFIC_GW_HOST_IP=10.70.4.207
+    #command: php /code/workerman/start.php start
+    command: 
+        - php
+        - /code/workerman/start.php 
+        - start
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ..:/code
+      - /data/cuser00/var/log/workerman:/logs
+    ports:
+      - "9999:9999"
+      - "9997:9997"
+      - "30000:30000"
+      - "30001:30001"
+      - "30002:30002"
+      - "30003:30003"
+
+  nginx:
+    image: nginx:1.18
+    restart: always
+    user: ${CURRENT_UID}
+    ports:
+      - "10070:10070"
+      - "10071:10071"
+      - "10072:10072"
+      - "10075:10075"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/server.conf:/etc/nginx/server.conf
+      - ./nginx/fcgi.conf:/etc/nginx/fcgi.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      #- ./nginx/conf.d:/etc/nginx/templates
+      - ..:/code
+      - /data/cuser00/www:/data/cuser00/www
+      - /data/cuser00/var/log/nginx:/logs
+      - /data/cuser00/var/log/nginx:/logs/game
+      - /data/cuser00/var/log/nginx:/var/log/nginx/
