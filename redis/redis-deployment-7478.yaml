@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: redis
+  name: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: redis
+  template:
+    metadata:
+      labels:
+        name: redis
+    spec:
+      containers:
+      - name: redis-7478
+        image: redis:5.0
+        volumeMounts:
+        - name: configmap-volume
+          mountPath: /usr/local/etc/redis/redis_6379.conf
+          subPath: redis_6379.conf
+        - name: redis-6379
+          mountPath: "/data"
+        command:
+          - "redis-server"
+        args:
+          - /usr/local/etc/redis/redis_6379.conf
+      volumes:
+      - name: configmap-volume
+        configMap:
+          name: redis-cm
+          items:
+          - key: redis_6379.conf
+            path: redis_6379.conf
+      - name: redis-7478
+        persistentVolumeClaim:
+          claimName: redis-7478-pvc
+      - name: redis-7479
+        persistentVolumeClaim:
+          claimName: redis-7479-pvc 
+      - name: redis-7480
+        persistentVolumeClaim:
+          claimName: redis-7480-pvc  
+      - name: redis-7481
+        persistentVolumeClaim:
+          claimName: redis-7481-pvc  
+      - name: redis-7482
+        persistentVolumeClaim:
+          claimName: redis-7482-pvc 
