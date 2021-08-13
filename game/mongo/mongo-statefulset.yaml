@@ -16,11 +16,37 @@ spec:
       containers:
       - name: mongodb
         image: mongo:3.4.14
+        imagePullPolicy: IfNotPresent
         command:
         - sh
         - -c
-        - "/docker-entrypoint-initdb.d/00-init-setup.sh; exec mongod -f /data/mongodb/conf/mongodb.conf"
-        imagePullPolicy: IfNotPresent
+        - "exec mongod -f /data/mongodb/conf/mongodb.conf"
+        lifecycle:
+          postStart:
+            - /bin/sh
+            - -c
+            - >
+              use admin;
+              db.createUser({
+              user: "root",
+              pwd: "H5gamere40d6bjm#2021",
+              roles: [ { role: "root", db: "admin" }, "readWriteAnyDatabase" ],
+              });
+
+              db.auth('root','H5gamere40d6bjm#2021');
+
+              db.createUser({
+              user: "capmouser",
+              pwd: "H5gamere40d6bjm#2021",
+              roles: [ { role: "__system", db: "admin" }, "readWriteAnyDatabase" ],
+              });
+
+              db.createUser({
+              user: "reader",
+              pwd: "u123123",
+              roles: [ { role: "readAnyDatabase", db: "admin" }, "readAnyDatabase" ],
+              });
+            
         ports:
         - containerPort: 27017
           name: mongodb
@@ -30,15 +56,10 @@ spec:
           mountPath: /data/mongodb/conf/
         - name: data
           mountPath: /data/mongodb/
-        - name: mongodb-setup-script
-          mountPath: /docker-entrypoint-initdb.d/00-init-setup.sh
       volumes:
       - name: mongodb-config
         configMap:
           name: mongodb-conf
-      - name: mongodb-setup-script
-        configMap:
-          name: mongodb-setup-script
       - name: data
         hostPath:
           path: /data/mongodb/
