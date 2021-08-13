@@ -1,16 +1,16 @@
 #!/bin/bash
 
 start() {
-    kubectl create -f ./mongo/mongo-svc.yaml
+    #kubectl create -f ./mongo/mongo-svc.yaml
     kubectl create -f ./mongo/mongo-statefulset.yaml
 
     kubectl create -f ./redis/redis-pv.yaml
     kubectl create -f ./redis/redis-pvc.yaml
-    kubectl create -f ./redis/redis-svc.yaml
+    #kubectl create -f ./redis/redis-svc.yaml
     kubectl create -f ./redis/redis-deployment-7478.yaml
 
-    kubectl create -f ./game/nginx-svc.yaml
-    kubectl create -f ./game/nginx-php-deployment.yaml
+    kubectl create -f ./nginx/nginx-svc.yaml
+    kubectl create -f ./nginx/nginx-php-deployment.yaml
 }
 
 stop() {
@@ -22,8 +22,8 @@ stop() {
     #kubectl delete -f ./redis/redis-svc.yaml
     kubectl delete -f ./redis/redis-deployment-7478.yaml
 
-    #kubectl delete -f ./game/nginx-svc.yaml
-    kubectl delete -f ./game/nginx-php-deployment.yaml
+    #kubectl delete -f ./nginx/nginx-svc.yaml
+    kubectl delete -f ./nginx/nginx-php-deployment.yaml
 }
 
 status() {

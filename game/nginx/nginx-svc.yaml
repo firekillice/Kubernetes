@@ -9,16 +9,16 @@ spec:
     port: 80
     protocol: TCP
     targetPort: 80
-    nodePort: 8080
+    nodePort: 30080
   - name: nginx-manage
     port: 81
     protocol: TCP
     targetPort: 81
-    nodePort: 8081
+    nodePort: 30081
   - name: nginx-rock-mongo
     port: 82
     protocol: TCP
     targetPort: 82
-    nodePort: 8082
+    nodePort: 30082
   selector:
     app: nginx-php
