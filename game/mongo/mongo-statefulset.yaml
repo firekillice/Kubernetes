@@ -23,29 +23,31 @@ spec:
         - "exec mongod -f /data/mongodb/conf/mongodb.conf"
         lifecycle:
           postStart:
-            - /bin/sh
-            - -c
-            - >
-              use admin;
-              db.createUser({
-              user: "root",
-              pwd: "H5gamere40d6bjm#2021",
-              roles: [ { role: "root", db: "admin" }, "readWriteAnyDatabase" ],
-              });
+            exec:
+              command:
+              - /bin/sh
+              - -c
+              - >
+                use admin;
+                db.createUser({
+                user: "root",
+                pwd: "H5gamere40d6bjm#2021",
+                roles: [ { role: "root", db: "admin" }, "readWriteAnyDatabase" ],
+                });
 
-              db.auth('root','H5gamere40d6bjm#2021');
+                db.auth('root','H5gamere40d6bjm#2021');
 
-              db.createUser({
-              user: "capmouser",
-              pwd: "H5gamere40d6bjm#2021",
-              roles: [ { role: "__system", db: "admin" }, "readWriteAnyDatabase" ],
-              });
+                db.createUser({
+                user: "capmouser",
+                pwd: "H5gamere40d6bjm#2021",
+                roles: [ { role: "__system", db: "admin" }, "readWriteAnyDatabase" ],
+                });
 
-              db.createUser({
-              user: "reader",
-              pwd: "u123123",
-              roles: [ { role: "readAnyDatabase", db: "admin" }, "readAnyDatabase" ],
-              });
+                db.createUser({
+                user: "reader",
+                pwd: "u123123",
+                roles: [ { role: "readAnyDatabase", db: "admin" }, "readAnyDatabase" ],
+                });
             
         ports:
         - containerPort: 27017
