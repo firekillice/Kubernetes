@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-7478
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: redis-7478
+  template:
+    metadata:
+      labels:
+        name: redis-7478
+    spec:
+      containers:
+      - name: redis-7478
+        image: redis:5.0
+        volumeMounts:
+        - mountPath: /usr/local/etc/redis/redis.conf
+          name: redis-conf
+        - mountPath: /data
+          name: redis-pvc-7478
+        command:
+          - "redis-server"
+        args:
+          - /usr/local/etc/redis/redis.conf
+      volumes:
+      - name: redis-pvc-7478
+        persistentVolumeClaim:
+          claimName: redis-pvc-7478
+      - name: redis-conf
+        configMap:
+          name: redis-conf
