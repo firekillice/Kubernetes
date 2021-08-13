@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: redis-6379-pvc
+  name: redis-pvc-7478
 spec:
   accessModes:
   - ReadWriteMany
   resources:
     requests:
-      storage: 10Gi
-  storageClassName: "nfs-provisioner"  # 这里指定storageClass名称
+      storage: 5Gi
+  storageClassName: "nfs-provisioner"

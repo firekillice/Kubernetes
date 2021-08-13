@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mongodb
+spec:
+  replicas: 1
+  serviceName: mongodb
+  selector:
+    matchLabels:
+      name: mongodb
+  template:
+    metadata:
+      labels:
+        name: mongodb
+    spec:
+      containers:
+      - name: mongodb
+        image: mongo:3.4.14
+        command:
+        - sh
+        - -c
+        - "exec mongod -f /data/mongodb/conf/mongodb.conf"
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 27017
+          name: mongodb
+          protocol: TCP
+        volumeMounts:
+        - name: mongodb-config
+          mountPath: /data/mongodb/conf/
+        - name: data
+          mountPath: /data/mongodb/
+      volumes:
+      - name: mongodb-config
+        configMap:
+          name: mongodb-conf
+      - name: data
+        hostPath:
+          path: /data/mongodb/
