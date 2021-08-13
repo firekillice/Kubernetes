@@ -13,7 +13,7 @@ kubectl create configmap conf-fcgi-conf --from-file ./nginx/conf/fcgi.conf
 
 kubectl create configmap redis-conf --from-file ./redis/redis.conf
 
-
+kubectl create configmap mongodb-setup-script --from-file ./mongo/setup.sh
 kubectl apply -f ./mongo/mongo-cm.yaml
 
 kubectl get configmap

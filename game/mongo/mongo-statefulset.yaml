@@ -19,7 +19,7 @@ spec:
         command:
         - sh
         - -c
-        - "exec mongod -f /data/mongodb/conf/mongodb.conf"
+        - "/docker-entrypoint-initdb.d/00-init-setup.sh; exec mongod -f /data/mongodb/conf/mongodb.conf"
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 27017
@@ -30,10 +30,15 @@ spec:
           mountPath: /data/mongodb/conf/
         - name: data
           mountPath: /data/mongodb/
+        - name: mongodb-setup-script
+          mountPath: /docker-entrypoint-initdb.d/00-init-setup.sh
       volumes:
       - name: mongodb-config
         configMap:
           name: mongodb-conf
+      - name: mongodb-setup-script
+        configMap:
+          name: mongodb-setup-script
       - name: data
         hostPath:
           path: /data/mongodb/
