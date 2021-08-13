@@ -3,6 +3,7 @@
 start() {
     #kubectl create -f ./mongo/mongo-svc.yaml
     kubectl create -f ./mongo/mongo-statefulset.yaml
+    #kubectl exec -it `kubectl get pods | grep mongo | awk '{print $1}'` -- /bin/bash /docker-entrypoint-initdb.d/setup.sh
 
     kubectl create -f ./redis/redis-pv.yaml
     kubectl create -f ./redis/redis-pvc.yaml
