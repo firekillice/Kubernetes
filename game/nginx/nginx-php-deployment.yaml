@@ -19,6 +19,7 @@ spec:
       # nginx 启动game的container
       - name: nginx-game
         image: nginx:latest
+        command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
         ports:
         - containerPort: 80
         volumeMounts:
@@ -52,6 +53,7 @@ spec:
       # nginx中启动manager的container
       - name: nginx-manage
         image: nginx:latest
+        command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
         ports:
         - containerPort: 81
         volumeMounts:
@@ -85,6 +87,7 @@ spec:
       # nginx中启动rockmong的container
       - name: nginx-rock-mongo
         image: nginx:latest
+        command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
         ports:
         - containerPort: 82
         volumeMounts:
@@ -120,6 +123,7 @@ spec:
         image: registry.cn-hangzhou.aliyuncs.com/sandstone/php:v-game-1.0.0
         #imagePullPolicy: Always
         imagePullPolicy: IfNotPresent
+        command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
         ports:
         - containerPort: 9000
         volumeMounts:
