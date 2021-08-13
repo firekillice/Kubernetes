@@ -7,7 +7,7 @@ spec:
     storage: 10Gi
   accessModes:
   - ReadWriteMany
-  PersistentVolumeClaimPolicy: Recycle
+  persistentVolumeReclaimPolicy: Recycle
   storageClassName: nfs
   nfs:
     path: /data/cuser00/nfs

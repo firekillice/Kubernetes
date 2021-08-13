@@ -1,8 +1,9 @@
 yum install nfs-utils -y
 
-if [ ! -d ]
+BASE_DIR=/data/cuser00/nfs
+if [ ! -d $BASE_DIR ]
 then
- mkdir -p /data/cuser00/nfs
+ mkdir -p $BASE_DIR
 fi
 
 echo "/data/cuser00/nfs *(rw,no_root_squash)" > /etc/exports
