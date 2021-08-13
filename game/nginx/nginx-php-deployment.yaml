@@ -26,20 +26,20 @@ spec:
           name: time
           readOnly: true
         
-        - mountPath: /etc/nginx
-          name: nginx-nginx-conf
+        - name: nginx-nginx-conf
+          mountPath: /etc/nginx
           readOnly: true
-        - mountPath: /etc/nginx
-          name: nginx-server-conf
+        - name: nginx-server-conf
+          mountPath: /etc/nginx
           readOnly: true
-        - mountPath: /etc/nginx
-          name: nginx-fcgi-conf
+        - name: nginx-fcgi-conf
+          mountPath: /etc/nginx
           readOnly: true
-        - mountPath: /etc/nginx/conf.d
-          name: nginx-conf-d-upstream-php-conf
+        - name: nginx-conf-d-upstream-php-conf
+          mountPath: /etc/nginx/conf.d
           readOnly: true
-        - mountPath: /etc/nginx/conf.d
-          name: nginx-conf-d-game-conf
+        - name: nginx-conf-d-game-conf
+          mountPath: /etc/nginx/conf.d
           readOnly: true
         - mountPath: /logs
           name: log-normal-path
