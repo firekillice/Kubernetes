@@ -27,27 +27,7 @@ spec:
               command:
               - /bin/sh
               - -c
-              - >
-                use admin;
-                db.createUser({
-                user: "root",
-                pwd: "H5gamere40d6bjm#2021",
-                roles: [ { role: "root", db: "admin" }, "readWriteAnyDatabase" ],
-                });
-
-                db.auth('root','H5gamere40d6bjm#2021');
-
-                db.createUser({
-                user: "capmouser",
-                pwd: "H5gamere40d6bjm#2021",
-                roles: [ { role: "__system", db: "admin" }, "readWriteAnyDatabase" ],
-                });
-
-                db.createUser({
-                user: "reader",
-                pwd: "u123123",
-                roles: [ { role: "readAnyDatabase", db: "admin" }, "readAnyDatabase" ],
-                });
+              - "exec sh /docker-entrypoint-initdb.d/00-init-setup.sh"
             
         ports:
         - containerPort: 27017
@@ -56,12 +36,17 @@ spec:
         volumeMounts:
         - name: mongodb-config
           mountPath: /data/mongodb/conf/
-        - name: data
+        - name: mongodb-data
           mountPath: /data/mongodb/
+        - name: mongodb-setup-script
+          mountPath: /docker-entrypoint-initdb.d/00-init-setup.sh
       volumes:
       - name: mongodb-config
         configMap:
           name: mongodb-conf
-      - name: data
+      - name: mongodb-setup-script
+        configMap:
+          name: mongodb-setup-script
+      - name: mongodb-data
         hostPath:
           path: /data/mongodb/
