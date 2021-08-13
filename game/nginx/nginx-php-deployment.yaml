@@ -26,19 +26,19 @@ spec:
           name: time
           readOnly: true
         
-        - mountPath: /etc/nginx/nginx.conf
+        - mountPath: /etc/nginx
           name: nginx-nginx-conf
           readOnly: true
-        - mountPath: /etc/nginx/server.conf
+        - mountPath: /etc/nginx
           name: nginx-server-conf
           readOnly: true
-        - mountPath: /etc/nginx/fcgi.conf
+        - mountPath: /etc/nginx
           name: nginx-fcgi-conf
           readOnly: true
-        - mountPath: /etc/nginx/conf.d/upstream_php-fpm.conf
+        - mountPath: /etc/nginx/conf.d
           name: nginx-conf-d-upstream-php-conf
           readOnly: true
-        - mountPath: /etc/nginx/conf.d/game.conf
+        - mountPath: /etc/nginx/conf.d
           name: nginx-conf-d-game-conf
           readOnly: true
         - mountPath: /logs
@@ -54,19 +54,19 @@ spec:
           name: time
           readOnly: true
         
-        - mountPath: /etc/nginx/nginx.conf
+        - mountPath: /etc/nginx
           name: nginx-nginx-conf
           readOnly: true
-        - mountPath: /etc/nginx/server.conf
+        - mountPath: /etc/nginx
           name: nginx-server-conf
           readOnly: true
-        - mountPath: /etc/nginx/fcgi.conf
+        - mountPath: /etc/nginx
           name: nginx-fcgi-conf
           readOnly: true
-        - mountPath: /etc/nginx/conf.d/upstream_php-fpm.conf
+        - mountPath: /etc/nginx/conf.d
           name: nginx-conf-d-upstream-php-conf
           readOnly: true
-        - mountPath: /etc/nginx/conf.d/manage.conf
+        - mountPath: /etc/nginx/conf.d
           name: nginx-conf-d-manage-conf
           readOnly: true
         - mountPath: /logs
@@ -82,19 +82,19 @@ spec:
           name: time
           readOnly: true
         
-        - mountPath: /etc/nginx/nginx.conf
+        - mountPath: /etc/nginx
           name: nginx-nginx-conf
           readOnly: true
-        - mountPath: /etc/nginx/server.conf
+        - mountPath: /etc/nginx
           name: nginx-server-conf
           readOnly: true
-        - mountPath: /etc/nginx/fcgi.conf
+        - mountPath: /etc/nginx
           name: nginx-fcgi-conf
           readOnly: true
-        - mountPath: /etc/nginx/conf.d/upstream_php-fpm.conf
+        - mountPath: /etc/nginx/conf.d
           name: nginx-conf-d-upstream-php-conf
           readOnly: true
-        - mountPath: /etc/nginx/conf.d/rock-mongo.conf
+        - mountPath: /etc/nginx/conf.d
           name: nginx-conf-d-rock-mongo-conf
           readOnly: true
         - mountPath: /logs
@@ -112,7 +112,7 @@ spec:
           name: time
           readOnly: true
         
-        - mountPath: /etc/nginx/nginx.conf
+        - mountPath: /etc/nginx
           name: nginx-nginx-conf
           readOnly: true
         - mountPath: /etc/nginx/server.conf
@@ -121,10 +121,10 @@ spec:
         - mountPath: /etc/nginx/fcgi.conf
           name: nginx-fcgi-conf
           readOnly: true
-        - mountPath: /etc/nginx/conf.d/upstream_php-fpm.conf
+        - mountPath: /etc/nginx/conf.d
           name: nginx-conf-d-upstream-php-conf
           readOnly: true
-        - mountPath: /etc/nginx/conf.d/manage.conf
+        - mountPath: /etc/nginx/conf.d
           name: nginx-conf-d-manage-conf
           readOnly: true
         - mountPath: /code/game

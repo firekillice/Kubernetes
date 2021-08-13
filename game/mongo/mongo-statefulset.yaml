@@ -27,7 +27,7 @@ spec:
               command:
               - /bin/sh
               - -c
-              - "exec sh /docker-entrypoint-initdb.d/00-init-setup.sh"
+              - "exec sh /docker-entrypoint-initdb.d/setup.sh"
             
         ports:
         - containerPort: 27017
@@ -39,7 +39,7 @@ spec:
         - name: mongodb-data
           mountPath: /data/mongodb/
         - name: mongodb-setup-script
-          mountPath: /docker-entrypoint-initdb.d/00-init-setup.sh
+          mountPath: /docker-entrypoint-initdb.d
       volumes:
       - name: mongodb-config
         configMap:
