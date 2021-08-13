@@ -27,19 +27,24 @@ spec:
           readOnly: true
         
         - name: nginx-nginx-conf
-          mountPath: /etc/nginx
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
           readOnly: true
         - name: nginx-server-conf
-          mountPath: /etc/nginx
+          mountPath: /etc/nginx/server.conf
+          subPath: server.conf
           readOnly: true
         - name: nginx-fcgi-conf
-          mountPath: /etc/nginx
+          mountPath: /etc/nginx/fcgi.conf
+          subPath: fcgi.conf
           readOnly: true
         - name: nginx-conf-d-upstream-php-conf
-          mountPath: /etc/nginx/conf.d
+          mountPath: /etc/nginx/conf.d/upstream_php-fpm.conf
+          subPath: upstream_php-fpm.conf
           readOnly: true
         - name: nginx-conf-d-game-conf
-          mountPath: /etc/nginx/conf.d
+          mountPath: /etc/nginx/conf.d/game.conf
+          subPath: game.conf
           readOnly: true
         - mountPath: /logs
           name: log-normal-path
