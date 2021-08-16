@@ -26,9 +26,8 @@ spec:
         - mountPath: /etc/localtime
           name: time
           readOnly: true
-
         - mountPath: /etc/nginx/conf.d
-          name: server-game-config
+          name: nginx-game-config
           readOnly: true
         - mountPath: /etc/nginx
           name: nginx-base-config
