@@ -1,7 +1,9 @@
 FROM php:7.2-fpm
 
+RUN sed -i s@/deb.debian.org/@/mirrors.aliyun.com/@g /etc/apt/sources.list 
+
 RUN apt-get update \
-&& apt-get install -y libyaml-dev libcurl4-openssl-dev libssl-dev  libevent-dev wget
+&& apt-get install -y libyaml-dev libcurl4-openssl-dev libssl-dev  libevent-dev wget procps net-tools vim
 
 RUN docker-php-ext-install sockets
 
@@ -11,7 +13,6 @@ RUN wget http://pecl.php.net/get/event-2.3.0.tgz \
 && mv event-2.3.0 /usr/src/php/ext/event \
 && cd /usr/src/php/ext \
 && docker-php-ext-install event
-
 
 RUN pecl install yaml-2.2.1 \
 && pecl install mongodb-1.7.4 \
