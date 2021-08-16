@@ -140,7 +140,7 @@ define('REF_SERVER_TIME', '');
 $GLOBALS['SLAVE_FLAG'] = false;
 
 //基础配置文件路径
-define('BASE_LIB', __DIR__ . '/../');
+define('BASE_LIB', '/code/gameserver/application/lib/');
 define('CONFIG_PATH', BASE_LIB . 'config');
 $GLOBALS['SERVER_CONFIG_PATH'] = CONFIG_PATH . '/Server.php';
 
