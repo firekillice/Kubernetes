@@ -1,8 +1,8 @@
 <?php 
 
 return array (
-  'MONGO_USER' => 'Mcapzc22018',
-  'MONGO_PWD' => 'Zc2t#2018',
+  'MONGO_USER' => 'root',
+  'MONGO_PWD' => 'H5gamere40d6bjm#2021',
   'SERVICE_OPEN_TIME' => '2017-04-19 10:00:10',
   'USER_HOST' => 'mongodb://10.43.68.176:27017',
   'ACCOUNT_HOST' => 'mongodb://10.43.68.176:27017',
