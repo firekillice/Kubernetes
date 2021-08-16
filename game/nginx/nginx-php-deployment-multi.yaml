@@ -47,9 +47,69 @@ spec:
           mountPath: /etc/nginx/conf.d/game.conf
           subPath: game.conf
           readOnly: true
+        - mountPath: /logs
+          name: log-normal-path
+
+      # nginx中启动manager的container
+      - name: nginx-manage
+        image: nginx:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 81
+        volumeMounts:
+        - mountPath: /etc/localtime
+          name: time
+          readOnly: true
+        
+        - name: nginx-nginx-conf
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+          readOnly: true
+        - name: nginx-server-conf
+          mountPath: /etc/nginx/server.conf
+          subPath: server.conf
+          readOnly: true
+        - name: nginx-fcgi-conf
+          mountPath: /etc/nginx/fcgi.conf
+          subPath: fcgi.conf
+          readOnly: true
+        - name: nginx-conf-d-upstream-php-conf
+          mountPath: /etc/nginx/conf.d/upstream_php-fpm.conf
+          subPath: upstream_php-fpm.conf
+          readOnly: true
         - name: nginx-conf-d-manage-conf
           mountPath: /etc/nginx/conf.d/manage.conf
           subPath: manage.conf
+          readOnly: true
+        - mountPath: /logs
+          name: log-normal-path
+
+      # nginx中启动rockmong的container
+      - name: nginx-rock-mongo
+        image: nginx:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 82
+        volumeMounts:
+        - mountPath: /etc/localtime
+          name: time
+          readOnly: true
+        
+        - name: nginx-nginx-conf
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+          readOnly: true
+        - name: nginx-server-conf
+          mountPath: /etc/nginx/server.conf
+          subPath: server.conf
+          readOnly: true
+        - name: nginx-fcgi-conf
+          mountPath: /etc/nginx/fcgi.conf
+          subPath: fcgi.conf
+          readOnly: true
+        - name: nginx-conf-d-upstream-php-conf
+          mountPath: /etc/nginx/conf.d/upstream_php-fpm.conf
+          subPath: upstream_php-fpm.conf
           readOnly: true
         - name: nginx-conf-d-rock-mongo-conf
           mountPath: /etc/nginx/conf.d/rock-mongo.conf
@@ -57,7 +117,7 @@ spec:
           readOnly: true
         - mountPath: /logs
           name: log-normal-path
-          
+
       # PHP的container
       - name: php-fpm-server
         image: registry.cn-hangzhou.aliyuncs.com/sandstone/php:v-game-1.0.0
