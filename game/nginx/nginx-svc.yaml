@@ -6,19 +6,19 @@ spec:
   type: NodePort
   ports:
   - name: nginx-game
+    port: 80
+    protocol: TCP
+    targetPort: 80
+    nodePort: 30080
+  - name: nginx-manage
     port: 81
     protocol: TCP
     targetPort: 81
     nodePort: 30081
-  - name: nginx-manage
+  - name: nginx-rock-mongo
     port: 82
     protocol: TCP
     targetPort: 82
     nodePort: 30082
-  - name: nginx-rock-mongo
-    port: 83
-    protocol: TCP
-    targetPort: 83
-    nodePort: 30083
   selector:
     app: nginx-php
