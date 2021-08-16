@@ -44,8 +44,8 @@ spec:
           subPath: upstream_php-fpm.conf
           readOnly: true
         - name: nginx-conf-d-game-conf
-          mountPath: /etc/nginx/conf.d/game.conf
-          subPath: game.conf
+          mountPath: /etc/nginx/conf.d/default.conf
+          subPath: default.conf
           readOnly: true
         - mountPath: /logs
           name: log-normal-path
@@ -53,7 +53,6 @@ spec:
       # nginx中启动manager的container
       - name: nginx-manage
         image: nginx:latest
-        #command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
         ports:
         - containerPort: 81
         volumeMounts:
@@ -78,8 +77,8 @@ spec:
           subPath: upstream_php-fpm.conf
           readOnly: true
         - name: nginx-conf-d-manage-conf
-          mountPath: /etc/nginx/conf.d/manage.conf
-          subPath: manage.conf
+          mountPath: /etc/nginx/conf.d/default.conf
+          subPath: default.conf
           readOnly: true
         - mountPath: /logs
           name: log-normal-path
@@ -87,7 +86,6 @@ spec:
       # nginx中启动rockmong的container
       - name: nginx-rock-mongo
         image: nginx:latest
-        #command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
         ports:
         - containerPort: 82
         volumeMounts:
@@ -112,8 +110,8 @@ spec:
           subPath: upstream_php-fpm.conf
           readOnly: true
         - name: nginx-conf-d-rock-mongo-conf
-          mountPath: /etc/nginx/conf.d/rock-mongo.conf
-          subPath: rock-mongo.conf
+          mountPath: /etc/nginx/conf.d/default.conf
+          subPath: default.conf
           readOnly: true
         - mountPath: /logs
           name: log-normal-path
