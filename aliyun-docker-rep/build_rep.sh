@@ -1,4 +1,9 @@
 #!/bin/bash
 
-sh ./nginx/build_upload_aliyun.sh
-sh ./php/build_upload_aliyun.sh
+cd ./nginx
+sh ./build_upload_aliyun.sh
+cd -
+ 
+cd ./php
+sh ./build_upload_aliyun.sh
+cd -
