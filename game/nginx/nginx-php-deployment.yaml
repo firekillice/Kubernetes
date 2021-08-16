@@ -166,13 +166,13 @@ spec:
           name: nginx-conf-d-rock-mongo-conf
       - name: php-rock-mongo-code-path
         hostPath:
-          path: /data/cuser00/wwww/igoal3_server/rockmongo-master
+          path: /data/cuser00/www/igoal3_server/rockmongo-master
       - name: php-game-code-path
         hostPath:
-          path:  /data/cuser00/wwww/igoal3_server/gameserver
+          path:  /data/cuser00/www/igoal3_server/gameserver
       - name: php-manage-code-path
         hostPath:
-          path: /data/cuser00/wwww/igoal3_server/manage
+          path: /data/cuser00/www/igoal3_server/manage
       - name: log-normal-path
         hostPath:
           path: /data/cuser00/var/log
