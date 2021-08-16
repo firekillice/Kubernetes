@@ -54,7 +54,7 @@ spec:
           name: php-manage-code-path
         - mountPath: /logs
           name: log-normal-path
-        - mountPath: /code/game/application/lib/config
+        - mountPath: /code/gameserver/application/lib/config
           name: server-game-config
           
       volumes:
