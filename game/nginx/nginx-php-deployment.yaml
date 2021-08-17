@@ -56,7 +56,7 @@ spec:
           name: log-normal-path
         - mountPath: /code/gameserver/application/lib/config
           name: server-game-config
-        - mountPath: /code/rockmongo-master/
+        - mountPath: /code/rockmongo-master/config.php
           name: nginx-rock-config
           subPath: config.php
           
