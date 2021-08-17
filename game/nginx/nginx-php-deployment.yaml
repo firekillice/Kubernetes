@@ -34,6 +34,10 @@ spec:
           readOnly: true
         - mountPath: /logs
           name: log-normal-path
+        - mountPath: /code/rockmongo-master
+          name: php-rock-mongo-code-path
+        - mountPath: /code/manage
+          name: php-manage-code-path      
           
       # PHP的container
       - name: php-fpm-server
