@@ -18,8 +18,6 @@ spec:
       containers:
       # nginx 启动game的container
       - name: nginx-game
-        image: registry.cn-hangzhou.aliyuncs.com/sandstone/nginx:v-game-1.0.0
-        imagePullPolicy: IfNotPresent
         image: nginx:latest
         imagePullPolicy: IfNotPresent
         ports:

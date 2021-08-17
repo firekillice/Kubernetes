@@ -3,7 +3,7 @@ FROM php:7.2-fpm
 RUN sed -i s@/deb.debian.org/@/mirrors.aliyun.com/@g /etc/apt/sources.list 
 
 RUN apt-get update \
-&& apt-get install -y libyaml-dev libcurl4-openssl-dev libssl-dev  libevent-dev wget procps net-tools vim
+&& apt-get install -y libyaml-dev libcurl4-openssl-dev libssl-dev  libevent-dev wget procps net-tools vim inetutils-ping
 
 RUN docker-php-ext-install sockets
 
