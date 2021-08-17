@@ -20,6 +20,8 @@ spec:
           name: redis-conf
         - mountPath: /data
           name: redis-pvc-7478
+        - mountPath: /logs
+          name: redis-pvc-7478
         command:
           - "redis-server"
         args:
