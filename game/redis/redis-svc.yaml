@@ -5,7 +5,7 @@ metadata:
  labels:
    name: redis-service
 spec:
- type: ClusterIP   # 如果需要集群外部访问,这里改为NodePort
+ type: NodePort   # 如果需要集群外部访问,这里改为NodePort
  ports:
  - port: 7478
    protocol: TCP
