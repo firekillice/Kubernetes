@@ -56,6 +56,8 @@ spec:
           name: log-normal-path
         - mountPath: /code/gameserver/application/lib/config
           name: server-game-config
+        - mountPath: /code/rockmongo-master/
+          name: nginx-rock-config
           
       volumes:
       - name: time
@@ -82,4 +84,7 @@ spec:
       - name: nginx-game-config
         configMap:
           name: nginx-game-config
+      - name: nginx-rock-config
+        configMap:
+          name: nginx-rock-config
 
