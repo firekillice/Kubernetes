@@ -18,7 +18,6 @@ spec:
         volumeMounts:
         - mountPath: /usr/local/etc/redis
           name: redis-conf
-          subPath: redis.conf
         - mountPath: /logs
           name: redis-pvc-7478
           subPath: ./redis/logs
