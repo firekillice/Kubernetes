@@ -7,6 +7,6 @@ spec:
  ports:
  - port: 7478
    protocol: TCP
-   targetPort: 7478
+   targetPort: 6379
  selector:
    name: redis
