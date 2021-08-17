@@ -58,6 +58,7 @@ spec:
           name: server-game-config
         - mountPath: /code/rockmongo-master/
           name: nginx-rock-config
+          subPath: config.php
           
       volumes:
       - name: time
