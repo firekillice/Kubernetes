@@ -11,21 +11,5 @@ spec:
    protocol: TCP
    targetPort: 7478
    name: redis-7478
- - port: 7479
-   protocol: TCP
-   targetPort: 7479
-   name: redis-7479
- - port: 7480
-   protocol: TCP
-   targetPort: 7480
-   name: redis-7480
- - port: 7481
-   protocol: TCP
-   targetPort: 7481
-   name: redis-7481
- - port: 7482
-   protocol: TCP
-   targetPort: 7482
-   name: redis-7482
  selector:
    name: redis
