@@ -24,12 +24,12 @@ spec:
         - mountPath: /logs
           name: redis-pvc-7478
           subPath: ./redis/logs
-        command: [ "/bin/bash", "-c", "--" ]
-        args: [ "while true; do sleep 30; done;" ]
-        #command:
-        #  - "redis-server"
-        #args:
-        #  - /usr/local/etc/redis/redis.conf
+        #command: [ "/bin/bash", "-c", "--" ]
+        #args: [ "while true; do sleep 30; done;" ]
+        command:
+          - "redis-server"
+        args:
+          - /usr/local/etc/redis/redis.conf
       volumes:
       - name: redis-pvc-7478
         persistentVolumeClaim:
