@@ -1,14 +1,14 @@
 {
     "master": {
-        "host": "localhost",
+        "host": "127.0.0.1",
         "rootport": 12000
     },
     "servers": {
         "admin": {
-            "host": "localhost",
+            "host": "127.0.0.1",
             "http": [
                 12010,
-                "\/static"
+                "/static"
             ],
             "module": "admin",
             "remotes": [
@@ -24,7 +24,7 @@
             "host": "http://nginx-php.default.svc.cluster.local:80/"
         },
         "net_tcp_1": {
-            "host": "localhost",
+            "host": "127.0.0.1",
             "tcpport": 12200,
             "remotes": [
                 "public",
@@ -34,7 +34,7 @@
             "interaddr": true
         },
         "net_tcp_2": {
-            "host": "localhost",
+            "host": "127.0.0.1",
             "tcpport": 12201,
             "remotes": [
                 "public",
@@ -44,7 +44,7 @@
             "interaddr": true
         },
         "net_http_1": {
-            "host": "localhost",
+            "host": "127.0.0.1",
             "http": [
                 12100,
                 "/static"
@@ -56,7 +56,7 @@
             "module": "net"
         },
         "net_http_2": {
-            "host": "localhost",
+            "host": "127.0.0.1",
             "http": [
                 12101,
                 "/static"
@@ -68,22 +68,22 @@
             "module": "net"
         },
         "public_1": {
-            "host": "localhost",
+            "host": "127.0.0.1",
             "rootport": 12300,
             "module": "public"
         },
         "public_2": {
-            "host": "localhost",
+            "host": "127.0.0.1",
             "rootport": 12301,
             "module": "public"
         },
         "security_1": {
-            "host": "localhost",
+            "host": "127.0.0.1",
             "rootport": 12320,
             "module": "security"
         },
         "chat_1": {
-            "host": "localhost",
+            "host": "127.0.0.1",
             "http": [
                 12340,
                 "/static"
@@ -93,12 +93,12 @@
         },
         "match_1": {
             "module": "match",
-            "host": "localhost",
+            "host": "127.0.0.1",
             "mgo": true
         },
         "matchd_1": {
             "module": "matchd",
-            "host": "localhost",
+            "host": "127.0.0.1",
             "http": [
                 12400,
                 "/static"
@@ -106,12 +106,12 @@
         },
         "matchd_2": {
             "module": "matchd",
-            "host": "10.10.50.72",
+            "host": "127.0.0.1",
             "http": [
                 12400,
                 "/static"
             ]
         }
     },
-    "log": "logs/gor"
+    "log": "/logs/gor"
 }
