@@ -1,3 +1,3 @@
 FROM docker.io/centos:7
-RUN yum - y install net-tools vim telnet 
+RUN yum install - y  net-tools vim telnet 
 
