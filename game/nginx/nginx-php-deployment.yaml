@@ -44,6 +44,10 @@ spec:
         image: registry.cn-hangzhou.aliyuncs.com/sandstone/php:v-game-1.0.0
         #imagePullPolicy: Always
         imagePullPolicy: IfNotPresent
+        lifecycle:
+          postStart:
+            exec:
+              command: ["/bin/sh", "-c", "chmod 777 /code/manage/protected/runtime"]
         ports:
         - containerPort: 9000
         volumeMounts:
