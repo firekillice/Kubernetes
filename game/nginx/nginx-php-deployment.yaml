@@ -109,6 +109,8 @@ spec:
           name: server-game-go-config
         - mountPath: /logs
           name: log-normal-path
+        - mountPath: /data
+          name: data-normal-path
 
       volumes:
       - name: time
@@ -129,6 +131,9 @@ spec:
       - name: log-normal-path
         hostPath:
           path: /data/cuser00/var/log
+      - name: data-normal-path
+        hostPath:
+          path: /data/cuser00/data
       - name: server-game-config
         configMap:
           name: server-game-config
