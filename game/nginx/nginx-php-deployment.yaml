@@ -93,6 +93,10 @@ spec:
         image: registry.cn-hangzhou.aliyuncs.com/sandstone/centos7:goserver-1.0.0
         #imagePullPolicy: Always
         imagePullPolicy: IfNotPresent
+        lifecycle:
+         postStart:
+           exec:
+             command: ["/bin/sh", "-c", "cd /code/goserver/bin; ./lancer start"]
         command: [ "/bin/bash", "-c", "--" ]
         args: [ "while true; do sleep 30; done;" ]
         volumeMounts:
