@@ -1,3 +1,6 @@
+/usr/local/bin/k3s-killall.sh 
+/usr/local/bin/k3s-uninstall.sh
+ 
 cp ./k3s /usr/local/bin/
 chmod +x /usr/local/bin/k3s
 
@@ -10,4 +13,4 @@ mkdir -p /var/lib/rancher/k3s/agent/images/
 cp ./k3s-airgap-images-amd64.tar.gz /var/lib/rancher/k3s/agent/images/
 
 chmod +x ./install.sh
-INSTALL_K3S_SKIP_DOWNLOAD=true ./install.sh --docker
+INSTALL_K3S_SKIP_DOWNLOAD=true INSTALL_K3S_EXEC="--tls-san 39.106.56.130"  ./install.sh --docker
