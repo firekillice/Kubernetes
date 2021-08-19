@@ -5,7 +5,7 @@ return array (
   array (
     0 => 
     array (
-      'url' => '10.10.50.71:12200',
+      'url' => '39.106.56.130:12200',
       'openTime' => '2018-3-28 0:0:0',
     ),
   ),
@@ -13,7 +13,7 @@ return array (
   array (
     0 => 
     array (
-      'url' => 'http://193.112.19.212:14001/filterchatcontent',
+      'url' => 'http://39.106.56.130:14001/filterchatcontent',
       'openTime' => '2018-3-28 0:0:0',
     ),
   ),
@@ -21,12 +21,12 @@ return array (
   array (
     0 => 
     array (
-      'url' => 'http://10.10.50.71:12100',
+      'url' => 'http://127.0.0.1:12100',
       'openTime' => '2018-3-28 0:0:0',
     ),
     1 => 
     array (
-      'url' => 'http://10.10.50.71:12101',
+      'url' => 'http://127.0.0.1:12101',
       'openTime' => '2018-3-28 0:0:0',
     ),
   ),
