@@ -70,7 +70,7 @@ spec:
         #imagePullPolicy: Always
         imagePullPolicy: IfNotPresent
         command: [ "/bin/bash"]
-        args: [ "/code/gameserver/cron/start_cron.sh start /logs/cron" ]
+        args: [ "sh /code/gameserver/cron/start_cron.sh start /logs/cron" ]
         volumeMounts:
         - mountPath: /etc/localtime
           name: time
