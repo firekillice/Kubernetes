@@ -71,8 +71,7 @@ spec:
         imagePullPolicy: IfNotPresent
         command: [ "/bin/sh"]
         args: 
-          - /code/gameserver/cron/start_cron.sh
-          - start
+          - /code/gameserver/cron/cron_task_service.sh
           - /logs/cron
         volumeMounts:
         - mountPath: /etc/localtime
