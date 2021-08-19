@@ -5,7 +5,7 @@ return array (
   array (
     0 => 
     array (
-      'url' => '39.106.56.130:12200',
+      'url' => '39.106.56.130:30100',
       'openTime' => '2018-3-28 0:0:0',
     ),
   ),
@@ -13,7 +13,7 @@ return array (
   array (
     0 => 
     array (
-      'url' => 'http://39.106.56.130:14001/filterchatcontent',
+      'url' => 'http://39.106.56.130:30200/filterchatcontent',
       'openTime' => '2018-3-28 0:0:0',
     ),
   ),
