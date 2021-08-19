@@ -83,10 +83,25 @@ spec:
           name: log-normal-path
         - mountPath: /code/gameserver/application/lib/config
           name: server-game-config
-        - mountPath: /code/rockmongo-master/config.php
-          name: nginx-rock-config
-          subPath: config.php
-          
+
+      # go
+      - name: go-server
+        image: registry.cn-hangzhou.aliyuncs.com/sandstone/php:v-game-1.0.0
+        #imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
+        command: [ "/bin/bash", "-c", "--" ]
+        args: [ "while true; do sleep 30; done;" ]
+        volumeMounts:
+        - mountPath: /etc/localtime
+          name: time
+          readOnly: true
+        - mountPath: /code/goserver
+          name: go-code-path
+        - mountPath: /code/goserver/bin/conf
+          name: server-game-go-config
+        - mountPath: /logs
+          name: log-normal-path
+
       volumes:
       - name: time
         hostPath:
@@ -100,6 +115,9 @@ spec:
       - name: php-manage-code-path
         hostPath:
           path: /data/cuser00/www/igoal3_server/manage
+      - name: go-code-path
+        hostPath:
+          path: /data/cuser00/www/igoal3_server/goserver
       - name: log-normal-path
         hostPath:
           path: /data/cuser00/var/log
@@ -115,4 +133,6 @@ spec:
       - name: nginx-rock-config
         configMap:
           name: nginx-rock-config
-
+      - name: server-game-go-config
+        configMap:
+          name: server-game-go-config

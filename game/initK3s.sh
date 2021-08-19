@@ -14,6 +14,7 @@ kubectl create configmap nginx-game-config --from-file=./nginx/conf/conf.d
 kubectl create configmap nginx-rock-config --from-file=./nginx/rock/config.php
 
 kubectl create configmap server-game-config --from-file=./server/config
+kubectl create configmap server-game-go-config --from-file=./server/go/config
 
 #kubectl create configmap nginx-server-conf --from-file ./nginx/conf/server.conf
 #kubectl create configmap nginx-nginx-conf --from-file ./nginx/conf/nginx.conf
