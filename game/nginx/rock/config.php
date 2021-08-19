@@ -17,7 +17,7 @@
 	$i = 0;
 
 	$MONGO["servers"][$i]["mongo_name"] = "动态测试服";
-        $MONGO["servers"][$i]["mongo_host"] = "mongodb.default.svc.cluster.local";
+        $MONGO["servers"][$i]["mongo_host"] = "svc-mongodb.default.svc.cluster.local";
         $MONGO["servers"][$i]["mongo_port"] = "27017";
         $MONGO["servers"][$i]["mongo_auth"] = true;
         $MONGO["servers"][$i]["control_users"]["admin"] = "admin";
