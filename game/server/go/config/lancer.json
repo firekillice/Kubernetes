@@ -287,7 +287,7 @@
         "launcher": "etcd",
         "options": {
           "log": "{{.log}}",
-          "params": "--name infra1 --initial-advertise-peer-urls http://127.0.0.1:2580 --listen-peer-urls http://127.0.0.1:2580  --listen-client-urls http://127.0.0.1:2579 --advertise-client-urls http://127.0.0.1:2579 --initial-cluster-token cluster-igoal2 --initial-cluster infra0=http://127.0.0.1:2480,infra1=http://127.0.0.1:2580,infra2=http://127.0.0.1:2680 --initial-cluster-state new --data-dir {{.data_dir}}etcd.1"
+          "params": "--name infra1 --initial-advertise-peer-urls http://127.0.0.1:2580 --listen-peer-urls http://127.0.0.1:2580 --listen-client-urls http://127.0.0.1:2579 --advertise-client-urls http://127.0.0.1:2579 --initial-cluster-token cluster-igoal2 --initial-cluster infra0=http://127.0.0.1:2480,infra1=http://127.0.0.1:2580,infra2=http://127.0.0.1:2680 --initial-cluster-state new --data-dir {{.data_dir}}etcd.1"
         },
         "path": {
           "log": "/logs/go/etcd/",
