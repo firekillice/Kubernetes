@@ -86,7 +86,7 @@ spec:
 
       # go
       - name: go-server
-        image: docker.io/centos:7
+        image: registry.cn-hangzhou.aliyuncs.com/sandstone/centos7:goserver-1.0.0
         #imagePullPolicy: Always
         imagePullPolicy: IfNotPresent
         command: [ "/bin/bash", "-c", "--" ]
