@@ -63,6 +63,27 @@ spec:
         - mountPath: /code/rockmongo-master/config.php
           name: nginx-rock-config
           subPath: config.php
+
+      # PHP的后台脚本
+      - name: php-cron-server
+        image: registry.cn-hangzhou.aliyuncs.com/sandstone/php:v-game-1.0.0
+        #imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
+        command: [ "/bin/bash", "-c", "--" ]
+        args: [ "while true; do sleep 30; done;" ]
+        volumeMounts:
+        - mountPath: /etc/localtime
+          name: time
+          readOnly: true
+        - mountPath: /code/gameserver
+          name: php-game-code-path
+        - mountPath: /logs
+          name: log-normal-path
+        - mountPath: /code/gameserver/application/lib/config
+          name: server-game-config
+        - mountPath: /code/rockmongo-master/config.php
+          name: nginx-rock-config
+          subPath: config.php
           
       volumes:
       - name: time
