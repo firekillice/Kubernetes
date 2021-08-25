@@ -20,7 +20,8 @@ RUN pecl install yaml-2.2.1 \
 && pecl install redis-5.2.2 \
 && docker-php-ext-enable redis mongodb yaml \
 && docker-php-ext-install opcache \
-&& cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
+&& cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini \
+&& sed -i 's/memory_limit\s*=.*/memory_limit=256M/g' /usr/local/etc/php/php.ini
 
 RUN  docker-php-ext-install pcntl
 
