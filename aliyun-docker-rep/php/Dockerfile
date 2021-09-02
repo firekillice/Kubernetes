@@ -25,7 +25,7 @@ RUN pecl install yaml-2.2.1 \
 && docker-php-ext-install opcache \
 && cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini \
 && sed -i 's/memory_limit\s*=.*/memory_limit=256M/g' /usr/local/etc/php/php.ini \
-&& sed -i 's/error_reporting\s*=.*/error_reporting = E_ALL & ~E_NOTICE/g' /usr/local/etc/php/php.ini \
+&& sed -i 's/~E_DEPRECATED & ~E_STRICT/~E_NOTICE/g' /usr/local/etc/php/php.ini \
 && echo "xhprof.output_dir = ${XHPROF_DATA_PATH}" >> /usr/local/etc/php/conf.d/docker-php-ext-xhprof.ini 
 
 RUN  docker-php-ext-install pcntl
