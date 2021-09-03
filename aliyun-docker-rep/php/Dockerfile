@@ -26,6 +26,7 @@ RUN pecl install yaml-2.2.1 \
 && cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini \
 && sed -i 's/memory_limit\s*=.*/memory_limit=256M/g' /usr/local/etc/php/php.ini \
 && sed -i 's/~E_DEPRECATED & ~E_STRICT/~E_NOTICE/g' /usr/local/etc/php/php.ini \
+&& sed -i 's/;date.timezone =/date.timezone = Asia\/Shanghai/g' /usr/local/etc/php/php.ini \
 && echo "xhprof.output_dir = ${XHPROF_DATA_PATH}" >> /usr/local/etc/php/conf.d/docker-php-ext-xhprof.ini 
 
 RUN  docker-php-ext-install pcntl
