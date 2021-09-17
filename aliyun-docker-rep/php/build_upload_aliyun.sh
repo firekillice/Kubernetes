@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REP_CLOUD=registry.cn-hangzhou.aliyuncs.com/sandstone/php:v-game-1.0.1
+REP_CLOUD=registry.cn-hangzhou.aliyuncs.com/sandstone/php:v-game-1.0.2
 docker build -t php-k3s:1.0.0 .
 
 docker login --username=wang70bin@163.com  --password=123qweasd registry.cn-hangzhou.aliyuncs.com
