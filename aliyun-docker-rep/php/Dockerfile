@@ -24,11 +24,13 @@ RUN pecl install yaml-2.2.1 \
 && docker-php-ext-enable redis mongodb yaml xhprof \
 && docker-php-ext-install opcache \
 && cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini \
-&& sed -i 's/memory_limit\s*=.*/memory_limit=256M/g' /usr/local/etc/php/php.ini \
+&& docker-php-ext-install pcntl
+
+RUN sed -i 's/memory_limit\s*=.*/memory_limit=256M/g' /usr/local/etc/php/php.ini \
 && sed -i 's/~E_DEPRECATED & ~E_STRICT/~E_NOTICE/g' /usr/local/etc/php/php.ini \
 && sed -i 's/;date.timezone =/date.timezone = Asia\/Shanghai/g' /usr/local/etc/php/php.ini \
-&& sed -i 's/;slowlog = /slowlog = \/logs/php-slow.log/g' /usr/local/etc/php-fpm.d/www.conf \
+&& sed -i 's/;slowlog = /slowlog = \/logs\/php-slow.log/g' /usr/local/etc/php-fpm.d/www.conf \
+&& sed -i 's/upload_max_filesize =/upload_max_filesize = 50M/g' /usr/local/etc/php/php.ini \
 && echo "xhprof.output_dir = ${XHPROF_DATA_PATH}" >> /usr/local/etc/php/conf.d/docker-php-ext-xhprof.ini 
 
-RUN  docker-php-ext-install pcntl
 
