@@ -5,7 +5,7 @@ ENV XHPROF_DATA_PATH /data/xhprof
 RUN sed -i s@/deb.debian.org/@/mirrors.aliyun.com/@g /etc/apt/sources.list 
 
 RUN apt-get update \
-&& apt-get install -y libyaml-dev libcurl4-openssl-dev libssl-dev  libevent-dev wget procps net-tools vim inetutils-ping
+&& apt-get install -y libyaml-dev libcurl4-openssl-dev libssl-dev  libevent-dev wget procps net-tools vim inetutils-ping zlib1g-dev libzip-dev
 
 RUN docker-php-ext-install sockets
 
@@ -24,9 +24,10 @@ RUN pecl install yaml-2.2.1 \
 && docker-php-ext-enable redis mongodb yaml xhprof \
 && docker-php-ext-install opcache \
 && cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini \
-&& sed -i 's/memory_limit\s*=.*/memory_limit=256M/g' /usr/local/etc/php/php.ini \
+&& sed -i 's/memory_limit\s*=.*/memory_limit=1024M/g' /usr/local/etc/php/php.ini \
 && sed -i 's/~E_DEPRECATED & ~E_STRICT/~E_NOTICE/g' /usr/local/etc/php/php.ini \
-&& echo "xhprof.output_dir = ${XHPROF_DATA_PATH}" >> /usr/local/etc/php/conf.d/docker-php-ext-xhprof.ini 
-
-RUN  docker-php-ext-install pcntl
+&& sed -i 's/;date.timezone =/date.timezone = Asia\/Shanghai/g' /usr/local/etc/php/php.ini \
+&& echo "xhprof.output_dir = ${XHPROF_DATA_PATH}" >> /usr/local/etc/php/conf.d/docker-php-ext-xhprof.ini  \
+&& docker-php-ext-install pcntl \
+&& docker-php-ext-install zip
 
