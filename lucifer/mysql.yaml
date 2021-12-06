@@ -39,7 +39,7 @@ items:
             name: mysql
             env:
             - name: MYSQL_ROOT_PASSWORD
-              value: 123456
+              value: "123456"
             volumeMounts:
             - name: data-volume
               mountPath: /var/lib/mysql
