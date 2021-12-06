@@ -20,6 +20,7 @@ items:
         [client]
         default_character_set = utf8
   - apiVersion: apps/v1
+    kind: Deployment
     metadata:
       name: mysql
       namespace: lucifer
