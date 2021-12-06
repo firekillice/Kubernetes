@@ -27,7 +27,8 @@ RUN pecl install yaml-2.2.1 \
 && sed -i 's/memory_limit\s*=.*/memory_limit=1024M/g' /usr/local/etc/php/php.ini \
 && sed -i 's/~E_DEPRECATED & ~E_STRICT/~E_NOTICE/g' /usr/local/etc/php/php.ini \
 && sed -i 's/;date.timezone =/date.timezone = Asia\/Shanghai/g' /usr/local/etc/php/php.ini \
+&& sed -i 's/;slowlog = /slowlog = \/logs\/php-slow.log/g' /usr/local/etc/php-fpm.d/www.conf \
 && echo "xhprof.output_dir = ${XHPROF_DATA_PATH}" >> /usr/local/etc/php/conf.d/docker-php-ext-xhprof.ini  \
+&& sed -i 's/upload_max_filesize =/upload_max_filesize = 50M/g' /usr/local/etc/php/php.ini \
 && docker-php-ext-install pcntl \
 && docker-php-ext-install zip
-
