@@ -52,3 +52,16 @@ items:
           - name: config-volmue
             configMap:
               name: mysql-config
+              
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      name: svc-mysql
+      namespace: lucifer
+    spec:
+      type: LoadBalancer
+      ports:
+      - name: lucifer-mysql
+        port: 3306
+        protocol: TCP
+        targetPort: 3306
