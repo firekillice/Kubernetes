@@ -22,7 +22,7 @@ items:
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: mysql
+      name: lucifer-mysql
       namespace: lucifer
     spec:
       selector:
@@ -52,7 +52,7 @@ items:
           - name: config-volmue
             configMap:
               name: mysql-config
-              
+
   - apiVersion: v1
     kind: Service
     metadata:
