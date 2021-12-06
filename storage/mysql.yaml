@@ -5,7 +5,7 @@ items:
     kind: ConfigMap
     metadata:
       name: mysql-config
-      namespace: lucifer
+      namespace: storage
     data:
       mysqld.cnf: |-
         [mysqld]
@@ -22,16 +22,16 @@ items:
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: lucifer-mysql
-      namespace: lucifer
+      name: storage-mysql
+      namespace: storage
     spec:
       selector:
         matchLabels:
-          app: mysql
+          app: storage-mysql
       template:
         metadata:
           labels:
-            app: mysql
+            app: storage-mysql
         spec:
           containers:
           - image: mysql:8.0.22
@@ -56,8 +56,8 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
-      name: svc-lucifer-mysql
-      namespace: lucifer
+      name: svc-storage-mysql
+      namespace: storage
     spec:
       type: LoadBalancer
       ports:
@@ -66,4 +66,4 @@ items:
         protocol: TCP
         targetPort: 3306
       selector:
-        app: lucifer-mysql
+        app: storage-mysql
