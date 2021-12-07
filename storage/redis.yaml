@@ -65,7 +65,7 @@ items:
       name: cm-redis
       namespace: storage
     data:
-      redis.cnf: |-
+      redis.conf: |-
         pidfile /data/redis.pid
         port 6379
         tcp-backlog 511
