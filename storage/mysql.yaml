@@ -45,6 +45,8 @@ items:
               mountPath: /var/lib/mysql
             - name: config-volmue
               mountPath: /etc/mysql/mysql.conf.d/
+            - mountPath: /etc/localtime
+              name: time
           volumes:
           - name: data-volume
             hostPath:
@@ -52,6 +54,10 @@ items:
           - name: config-volmue
             configMap:
               name: mysql-config
+        volumes:
+          - name: time
+            hostPath:
+              path: /etc/localtime
 
   - apiVersion: v1
     kind: Service

@@ -24,6 +24,13 @@ items:
               value:  svc-mysql.storage.svc.cluster.local
             - name: PMA_PORT
               value: "3306"
+            volumeMounts:
+            - mountPath: /etc/localtime
+              name: time
+          volumes:
+          - name: time
+            hostPath:
+              path: /etc/localtime
 
   - apiVersion: v1
     kind: Service
