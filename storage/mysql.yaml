@@ -39,7 +39,7 @@ items:
             name: mysql
             env:
             - name: MYSQL_ROOT_PASSWORD
-              value: "carbon#2020"
+              value: "123456"
             volumeMounts:
             - name: data-volume
               mountPath: /var/lib/mysql
