@@ -18,17 +18,18 @@ items:
           containers:
           - image: redis:5.0
             imagePullPolicy: IfNotPresent
-            volumeMounts:
+            command:
+            - "redis-server"
+          args:
+            - /usr/local/etc/redis/redis.conf
+          volumeMounts:
           - mountPath: /usr/local/etc/redis
             name: redis-conf
           - mountPath: /data
             name: data-volume
           - mountPath: /logs
             name: log-volume
-          command:
-            - "redis-server"
-          args:
-            - /usr/local/etc/redis/redis.conf
+
         volumes:
         - name: data-volume
           hostPath:

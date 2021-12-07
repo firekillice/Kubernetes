@@ -31,7 +31,7 @@ items:
       template:
         metadata:
           labels:
-            app:deployment-storage-mysql
+            app: deployment-storage-mysql
         spec:
           containers:
           - image: mysql:8.0.22
