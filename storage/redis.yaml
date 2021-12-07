@@ -17,7 +17,7 @@ items:
         spec:
           containers:
           - name: container-storage-redis-6379
-            image: redis:Latest
+            image: redis:latest
             imagePullPolicy: IfNotPresent
             command:
               - "redis-server"
