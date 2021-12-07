@@ -1,3 +1,5 @@
+##### 注意: redis重启后，数据不丢，但是密码会没有，需要重新设置
+
 kind: List
 apiVersion: v1
 items:
@@ -26,7 +28,6 @@ items:
             volumeMounts:
             - mountPath: /usr/local/etc/redis/redis.conf
               name: redis-conf
-              subPath: redis.conf
             - mountPath: /data
               name: data-volume
             - mountPath: /logs
@@ -64,7 +65,7 @@ items:
       name: cm-redis
       namespace: storage
     data:
-      mysqld.cnf: |-
+      redis.cnf: |-
         pidfile /data/redis.pid
         port 6379
         tcp-backlog 511
