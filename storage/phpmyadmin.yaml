@@ -1,0 +1,45 @@
+kind: List
+apiVersion: v1
+items:
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: web-php-my-admin
+      namespace: storage
+    spec:
+      selector:
+        matchLabels:
+          app: web-php-my-admin
+      template:
+        metadata:
+          labels:
+            app: web-php-my-admin
+        spec:
+          containers:
+          - image: phpmyadmin:latest
+            imagePullPolicy: IfNotPresent
+            name: phpmyadmin
+            args: 
+              - --name
+              - myadmin
+              - -d
+              - -e 
+              - PMA_HOST
+              - svc-mysql.storage.svc.cluster.local
+              - PMA_PORT
+              - "3306"
+
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      name: svc-php-my-admin
+      namespace: storage
+    spec:
+      type: LoadBalancer
+      ports:
+      - name: svc-php-my-admin
+        port: 13306
+        protocol: TCP
+        targetPort: 80
+      selector:
+        app: web-php-my-admin
