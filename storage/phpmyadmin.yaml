@@ -21,7 +21,7 @@ items:
             name: phpmyadmin
             env:
             - name: PMA_HOST
-              value:  svc-mysql.storage.svc.cluster.local
+              value: svc-storage-mysql.storage.svc.cluster.local
             - name: PMA_PORT
               value: "3306"
             volumeMounts:
