@@ -24,7 +24,7 @@ items:
             args:
               - /usr/local/etc/redis/redis.conf
             volumeMounts:
-            - mountPath: /usr/local/etc/redis
+            - mountPath: /usr/local/etc/redis/redis.conf
               name: redis-conf
               subPath: redis.conf
             - mountPath: /data
