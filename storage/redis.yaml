@@ -31,16 +31,16 @@ items:
             - mountPath: /logs
               name: log-volume
 
-        volumes:
-        - name: data-volume
-          hostPath:
-            path: /home/sandstone/workpath/data/redis
-        - name: log-volume
-          hostPath:
-            path: /home/sandstone/workpath/log/redis
-        - name: redis-conf
-          configMap:
-            name: cm-redis
+          volumes:
+          - name: data-volume
+            hostPath:
+              path: /home/sandstone/workpath/data/redis
+          - name: log-volume
+            hostPath:
+              path: /home/sandstone/workpath/log/redis
+          - name: redis-conf
+            configMap:
+              name: cm-redis
 
   - apiVersion: v1
     kind: Service
