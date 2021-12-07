@@ -56,7 +56,7 @@ items:
         protocol: TCP
         targetPort: 6379
       selector:
-        name: deployment-storage-redis
+        app: deployment-storage-redis
 
   - apiVersion: v1
     kind: ConfigMap
