@@ -16,7 +16,8 @@ items:
             app: deployment-storage-redis
         spec:
           containers:
-          - image: redis:5.0
+          - name: container-storage-redis-6379
+            image: redis:5.0
             imagePullPolicy: IfNotPresent
             command:
               - "redis-server"
