@@ -54,7 +54,6 @@ items:
           - name: config-volmue
             configMap:
               name: mysql-config
-        volumes:
           - name: time
             hostPath:
               path: /etc/localtime
