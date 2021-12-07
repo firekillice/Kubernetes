@@ -19,6 +19,7 @@ items:
         group_concat_max_len = 102400
         [client]
         default_character_set = utf8
+        
   - apiVersion: apps/v1
     kind: Deployment
     metadata:

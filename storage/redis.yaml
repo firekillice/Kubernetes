@@ -45,17 +45,17 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
-    name: svc-storage-redis
-    namespace: storage
+      name: svc-storage-redis
+      namespace: storage
     spec:
-    type: LoadBalancer
-    ports:
-    - name: svc-storage-redis
-      port: 6379
-      protocol: TCP
-      targetPort: 6379
-    selector:
-      name: deployment-storage-redis
+      type: LoadBalancer
+      ports:
+      - name: svc-storage-redis
+        port: 6379
+        protocol: TCP
+        targetPort: 6379
+      selector:
+        name: deployment-storage-redis
 
   - apiVersion: v1
     kind: ConfigMap
