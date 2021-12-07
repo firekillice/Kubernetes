@@ -4,7 +4,7 @@ items:
   - apiVersion: v1
     kind: ConfigMap
     metadata:
-      name: mysql-config
+      name: cm-mysql
       namespace: storage
     data:
       mysqld.cnf: |-
@@ -22,16 +22,16 @@ items:
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: storage-mysql
+      name: deployment-storage-mysql
       namespace: storage
     spec:
       selector:
         matchLabels:
-          app: storage-mysql
+          app: deployment-storage-mysql
       template:
         metadata:
           labels:
-            app: storage-mysql
+            app:deployment-storage-mysql
         spec:
           containers:
           - image: mysql:8.0.22
@@ -53,7 +53,7 @@ items:
               path: /home/sandstone/workpath/data/mysql
           - name: config-volmue
             configMap:
-              name: mysql-config
+              name: cm-mysql
           - name: time
             hostPath:
               path: /etc/localtime
@@ -71,4 +71,4 @@ items:
         protocol: TCP
         targetPort: 3306
       selector:
-        app: storage-mysql
+        app: deployment-storage-mysql

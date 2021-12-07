@@ -4,16 +4,16 @@ items:
   - apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: web-php-my-admin
+      name: deployment-php-my-admin
       namespace: storage
     spec:
       selector:
         matchLabels:
-          app: web-php-my-admin
+          app: deployment-php-my-admin
       template:
         metadata:
           labels:
-            app: web-php-my-admin
+            app: deployment-php-my-admin
         spec:
           containers:
           - image: phpmyadmin:latest
@@ -45,4 +45,4 @@ items:
         protocol: TCP
         targetPort: 80
       selector:
-        app: web-php-my-admin
+        app: deployment-php-my-admin
