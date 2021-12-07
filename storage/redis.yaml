@@ -26,6 +26,7 @@ items:
             volumeMounts:
             - mountPath: /usr/local/etc/redis
               name: redis-conf
+              subPath: redis.conf
             - mountPath: /data
               name: data-volume
             - mountPath: /logs
