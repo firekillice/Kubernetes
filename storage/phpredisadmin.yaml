@@ -1,0 +1,52 @@
+kind: List
+apiVersion: v1
+items:
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: deployment-php-redis-admin
+      namespace: storage
+    spec:
+      selector:
+        matchLabels:
+          app: deployment-php-redis-admin
+      template:
+        metadata:
+          labels:
+            app: deployment-php-redis-admin
+        spec:
+          containers:
+          - image: erikdubbelboer/phpredisadmin
+            imagePullPolicy: IfNotPresent
+            name: phpredisadmin
+            env:
+            - name: REDIS_1_HOST
+              value: svc-storage-redis.storage.svc.cluster.local
+            - name: REDIS_1_PORT
+              value: "6379"
+            - name: REDIS_1_NAME
+              value: "storage-universal-redis"
+            - name: REDIS_1_AUTH 
+              value: "4rT35Ker4m"
+            volumeMounts:
+            - mountPath: /etc/localtime
+              name: time
+          volumes:
+          - name: time
+            hostPath:
+              path: /etc/localtime
+
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      name: svc-php-redis-admin
+      namespace: storage
+    spec:
+      type: LoadBalancer
+      ports:
+      - name: svc-php-redis-admin
+        port: 16379
+        protocol: TCP
+        targetPort: 80
+      selector:
+        app: deployment-php-redis-admin
