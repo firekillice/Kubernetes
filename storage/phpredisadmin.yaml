@@ -41,7 +41,7 @@ items:
                 - name: REDIS_3_PORT
                   value: "6399"
                 - name: REDIS_3_NAME
-                  value: "storage-redis-02"
+                  value: "storage-redis-03"
                 - name: REDIS_3_AUTH
                   value: "4rT35Ker4m"
               volumeMounts:
