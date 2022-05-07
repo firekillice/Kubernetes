@@ -16,7 +16,7 @@ items:
             app: deployment-php-redis-admin
         spec:
           containers:
-          - image: erikdubbelboer/phpredisadmin
+          - image: capnexus-registry.capstonedev.cn/erikdubbelboer/phpredisadmin
             imagePullPolicy: IfNotPresent
             name: phpredisadmin
             env:

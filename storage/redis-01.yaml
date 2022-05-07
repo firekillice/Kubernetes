@@ -19,7 +19,7 @@ items:
         spec:
           containers:
           - name: container-storage-redis-6379
-            image: redis:latest
+            image: capnexus-registry.capstonedev.cn/redis:latest
             imagePullPolicy: IfNotPresent
             command:
               - "redis-server"
@@ -49,8 +49,10 @@ items:
     metadata:
       name: svc-storage-redis
       namespace: storage
+      labels:
+        svc: redis-storage
     spec:
-      type: LoadBalancer
+      type: ClusterIP
       ports:
       - name: svc-storage-redis
         port: 6379

@@ -16,7 +16,7 @@ items:
             app: deployment-php-my-admin
         spec:
           containers:
-          - image: phpmyadmin:latest
+          - image: capnexus-registry.capstonedev.cn/phpmyadmin:latest
             imagePullPolicy: IfNotPresent
             name: phpmyadmin
             env:
@@ -25,12 +25,12 @@ items:
             - name: PMA_PORT
               value: "3306"
             volumeMounts:
-            - mountPath: /etc/localtime
-              name: time
+              #- mountPath: /etc/localtime
+              #name: time
           volumes:
-          - name: time
-            hostPath:
-              path: /etc/localtime
+            #          - name: time
+            # hostPath:
+            # path: /etc/localtime
 
   - apiVersion: v1
     kind: Service

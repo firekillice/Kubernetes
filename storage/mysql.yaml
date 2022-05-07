@@ -35,7 +35,7 @@ items:
             app: deployment-storage-mysql
         spec:
           containers:
-          - image: mysql:8.0.22
+          - image: capnexus-registry.capstonedev.cn/mysql:8.0.22
             imagePullPolicy: IfNotPresent
             name: mysql
             env:
@@ -46,8 +46,8 @@ items:
               mountPath: /var/lib/mysql
             - name: config-volmue
               mountPath: /etc/mysql/mysql.conf.d/
-            - mountPath: /etc/localtime
-              name: time
+                #            - mountPath: /etc/localtime
+                #name: time
           volumes:
           - name: data-volume
             hostPath:
@@ -55,9 +55,9 @@ items:
           - name: config-volmue
             configMap:
               name: cm-mysql
-          - name: time
-            hostPath:
-              path: /etc/localtime
+                #- name: time
+                #hostPath:
+                #path: /etc/localtime
 
   - apiVersion: v1
     kind: Service
@@ -65,7 +65,7 @@ items:
       name: svc-storage-mysql
       namespace: storage
     spec:
-      type: LoadBalancer
+      type: ClusterIP
       ports:
       - name: svc-mysql
         port: 3306
