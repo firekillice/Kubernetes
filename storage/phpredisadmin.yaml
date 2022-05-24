@@ -42,7 +42,7 @@ items:
       name: svc-php-redis-admin
       namespace: storage
     spec:
-      type: LoadBalancer
+      type: ClusterIP
       ports:
       - name: svc-php-redis-admin
         port: 16379

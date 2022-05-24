@@ -38,7 +38,7 @@ items:
       name: svc-php-my-admin
       namespace: storage
     spec:
-      type: LoadBalancer
+      type: ClusterIP
       ports:
       - name: svc-php-my-admin
         port: 13306
